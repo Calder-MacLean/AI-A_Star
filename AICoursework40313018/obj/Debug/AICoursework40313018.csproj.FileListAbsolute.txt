@@ -1,0 +1,6 @@
+D:\AI Working\AI working\AICoursework40313018\AICoursework40313018\bin\Debug\AICoursework40313018.exe.config
+D:\AI Working\AI working\AICoursework40313018\AICoursework40313018\bin\Debug\AICoursework40313018.exe
+D:\AI Working\AI working\AICoursework40313018\AICoursework40313018\bin\Debug\AICoursework40313018.pdb
+D:\AI Working\AI working\AICoursework40313018\AICoursework40313018\obj\Debug\AICoursework40313018.csprojAssemblyReference.cache
+D:\AI Working\AI working\AICoursework40313018\AICoursework40313018\obj\Debug\AICoursework40313018.exe
+D:\AI Working\AI working\AICoursework40313018\AICoursework40313018\obj\Debug\AICoursework40313018.pdb
