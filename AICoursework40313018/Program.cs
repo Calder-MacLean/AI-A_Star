@@ -98,19 +98,7 @@ namespace AICoursework40313018
                 listNode.coords = caveCoords[x];
                 cavernList.Add(listNode);
             }
-            /*
-            Node startNode = new Node();
-
-            startNode.cavernNum = 1;
-            startNode.coords = caveCoords[0];
-
-            Node endNode = new Node();
-            endNode.cavernNum = numOfCaves;
-            endNode.coords = caveCoords[numOfCaves -1];
-
-            startDistance = cavernList[0].heuristicFunction(cavernList[0], cavernList[numOfCaves - 1]);
-            Console.WriteLine(startDistance);
-            */
+            
             int connectionStartPoint = numOfPoints + 1;
 
             int caveCounter = numOfCaves + 1;
@@ -135,46 +123,6 @@ namespace AICoursework40313018
                 }
             }
 
-            //DijkstaSearch(caveMatricies, startNode, endNode)
-            /*
-            Console.WriteLine(numOfPoints);
-
-            foreach(Point xy in caveCoords)
-            {
-                Console.WriteLine(xy);
-                Console.WriteLine("\n");
-            }
-            */
-            /*
-            for ( int x = 0; x < numOfCaves; x++)
-            {
-                for( int y = 0; y < numOfCaves; y++)
-                {
-                    Console.WriteLine(caveMatricies[x, y] + "\t");
-                }
-                Console.WriteLine();
-            }
-            */
-            /*
-            foreach (Node item in cavernList)
-            {
-                Console.WriteLine(item.cavernNum.ToString() + "," + item.coords);
-                foreach(var cave in item.connectedCaves)
-                {
-                    Console.WriteLine(cave);
-                }
-                //distance = startNode.heuristicFunction(startNode, item);
-                //Console.WriteLine(distance);
-
-            }
-            */
-            //Console.WriteLine(cavernList[2].connectedCaves);
-            /*
-            foreach (int cave in cavernList[0].connectedCaves)
-            {
-                Console.WriteLine(cave);
-            }
-            */
             if (cavernList[0].connectedCaves.Count != 0)
             {
                 AStarSearch(cavernList, cavesn);
@@ -187,6 +135,7 @@ namespace AICoursework40313018
                 }
             }
         }
+        
         public static void AStarSearch(List<Node> listOfCaves, string outputFile)
         {
             List<Node> solution = new List<Node>();
@@ -213,13 +162,6 @@ namespace AICoursework40313018
                     List<Node> connectedNodes = new List<Node>();
                     foreach (var cavern in current.connectedCaves)
                     {
-                        //Console.WriteLine("Hello" + " " + cavern);
-                        //listOfCaves[cavern].G = listOfCaves[cavern].calculateGDist(current, listOfCaves[cavern]);
-                        //listOfCaves[cavern].H = listOfCaves[cavern].calculateHDist(listOfCaves[cavern], aStarEndNode);
-                        //listOfCaves[cavern].H = 0.0;
-                        //listOfCaves[cavern].F = listOfCaves[cavern].calculateFDist(listOfCaves[cavern]);
-                        //listOfCaves[cavern].parentNode = current;
-                        //Console.WriteLine(listOfCaves[cavern].cavernNum.ToString());
                         connectedNodes.Add(listOfCaves[cavern]);
                     }   
                      
@@ -309,68 +251,9 @@ namespace AICoursework40313018
             if (!closedList.Contains(aStarFirstNode))
             {
                 //Console.WriteLine(0);
-
-                //using (StreamWriter nosolution = new StreamWriter(outputFile))
-                //{
-                //    nosolution.Write("0");
-                //}
+                
                 File.WriteAllText(outputFile, "0");
             }
-            /*
-            foreach (var cave in current.connectedCaves)
-            {
-                Console.WriteLine(cave);
-                if(listOfCaves[cave - 1].calculateGDist(current, listOfCaves[cave -1], gdist) < gdist)
-                {
-                    if(listOfCaves[cave -1].calculateHDist(aStarEndNode, listOfCaves[cave - 1], hdist) < hdist)
-                    {
-                        if(listOfCaves[cave - 1].calculateHDist(aStarEndNode, listOfCaves[cave - 1], fdist) < fdist)
-                        {
-                            current = listOfCaves[cave];
-                            Console.WriteLine(current.cavernNum);
-                        }  
-                    }  
-                }
-            }
-            */
-            /*
-            for (int i = 0; i < connectedNodes.Count; i++)
-            {
-                Console.WriteLine(connectedNodes[i].cavernNum + ",");
-            }
-            */
-        }
-
-        /*
-        public void DijkstraSearch(int[,] caverns, Node startCave, Node endCave, double distance, int numCaverns, List<int> caveRoute, List<Node> caveNodes, Node parent, Node nextNode)
-        {
-            double startDistance = 0.0;
-            double shortestDistance = 100;
-            startCave.cavernNum = 1;
-            endCave.cavernNum = numCaverns;
-            startDistance = startCave.heuristicFunction(startCave, endCave, distance);
-            caveRoute.Add(startCave.cavernNum);
-
-            for(int i = 0; i < numCaverns; i++)
-            {
-                for(int j = 0; j < numCaverns; j++)
-                {
-                    if(caverns[i,j] == 1)
-                    {
-                        if(caveNodes[j].heuristicFunction(startCave, nextNode, shortestDistance) < shortestDistance)
-                        {
-                            nextNode.cavernNum = j;
-                            nextNode.coords = caveNodes[j].coords;
-                            Console.WriteLine(nextNode.cavernNum);
-                            parent.cavernNum = nextNode.cavernNum;
-                            parent.coords = nextNode.coords;
-                        }
-                    }
-                }
-            }
-
-        }
-        */
     }
 }
 
